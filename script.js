@@ -1,19 +1,33 @@
-const csvString = "Translate 'Hello' to Spanish,hola";
-const [questionText, correctAnswer] = csvString.split(",");
+const csvString = `Translate 'Hello' to Spanish,hola,buenos días,adiós
+Translate 'Goodbye' to Spanish,adiós,hola,buenos días`;
 
+const questions = csvString.split("\n").map(line => {
+    const [question, correctAnswer, ...choices] = line.split(",");
+    return { question, correctAnswer, choices: [correctAnswer, ...choices].sort(() => Math.random() - 0.5) };
+});
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const scoreElement = document.getElementById("score");
 const questionElement = document.getElementById("question");
-const answerElement = document.getElementById("answer");
+const choicesElement = document.getElementById("choices");
 const resultElement = document.getElementById("result");
 
-questionElement.textContent = questionText;
+function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+    choicesElement.innerHTML = "";
 
-function submitAnswer() {
-    const userAnswer = answerElement.value.trim().toLowerCase();
-    if (userAnswer === correctAnswer) {
-        resultElement.textContent = "Correct!";
-        resultElement.style.color = "green";
-    } else {
-        resultElement.textContent = "Incorrect. Try again!";
-        resultElement.style.color = "red";
+    for (const choice of currentQuestion.choices) {
+        const button = document.createElement("button");
+        button.classList.add("choice-button");
+        button.textContent = choice;
+        button.onclick = () => submitAnswer(choice);
+        choicesElement.appendChild(button);
     }
 }
+
+function submitAnswer(userAnswer) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if
