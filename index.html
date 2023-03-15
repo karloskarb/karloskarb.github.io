@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HTML Page</title>
+    <title>Simple Duolingo Clone</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to my simple HTML page.</p>
+    <div class="container">
+        <h1>Simple Duolingo Clone</h1>
+        <div id="question"></div>
+        <input type="text" id="answer" placeholder="Type your answer...">
+        <button onclick="submitAnswer()">Submit</button>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
