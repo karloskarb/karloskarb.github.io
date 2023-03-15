@@ -12,6 +12,8 @@ let score = 0;
 const scoreElement = document.getElementById("score");
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
+const answerElement = document.getElementById("answer");
+const submitButton = document.getElementById("submit-button");
 const resultElement = document.getElementById("result");
 
 function displayQuestion() {
@@ -23,11 +25,26 @@ function displayQuestion() {
         const button = document.createElement("button");
         button.classList.add("choice-button");
         button.textContent = choice;
-        button.onclick = () => submitAnswer(choice);
+        button.onclick = () => {
+            answerElement.value = choice;
+        };
         choicesElement.appendChild(button);
     }
 }
 
-function submitAnswer(userAnswer) {
+function submitAnswer() {
+    const userAnswer = answerElement.value.trim().toLowerCase();
     const currentQuestion = questions[currentQuestionIndex];
-    if
+
+    if (userAnswer === currentQuestion.correctAnswer) {
+        resultElement.textContent = "Correct!";
+        resultElement.style.color = "green";
+        score++;
+        scoreElement.textContent = `Score: ${score}`;
+    } else {
+        resultElement.textContent = "Incorrect. Try again!";
+        resultElement.style.color = "red";
+    }
+}
+
+displayQuestion();
