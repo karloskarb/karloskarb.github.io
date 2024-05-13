@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Duolingo Clone</title>
+    <title>Narrative Neuron</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Simple Duolingo Clone</h1>
-        <h2 id="score">Score: 0</h2>
-        <div id="question"></div>
-        <div id="choices" class="choices"></div>
-        <input type="text" id="answer" placeholder="Type your answer...">
-        <button id="submit-button" onclick="submitAnswer()">Submit</button>
-        <div id="result"></div>
+    <header>
+        <h1>Narrative Neuron</h1>
+        <nav>
+            <ul>
+                <li><a href="#settings"><img src="settings-icon.png" alt="Settings"></a></li>
+                <li><a href="#search"><img src="search-icon.png" alt="Search"></a></li>
+                <li><a href="#account"><img src="account-icon.png" alt="Account"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-content">
+        <aside>
+            <ul>
+                <li>1. Find research question</li>
+                <li>2. Create inclusion & exclusion criteria</li>
+                <li>3. ...</li>
+                <li>4. Do the search</li>
+                <li>5. Filter the articles</li>
+            </ul>
+        </aside>
+        <section class="content-area">
+            <p>Content related to selected step will appear here.</p>
+        </section>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
