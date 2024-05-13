@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* This ensures no horizontal scrollbar appears */
 }
 
 header {
@@ -29,7 +29,7 @@ header nav ul li {
 
 .main-content {
     display: flex;
-    transition: margin-left 0.5s;
+    transition: margin-left 0.5s; /* Smooth transition for the main content area */
 }
 
 aside {
@@ -38,8 +38,8 @@ aside {
     padding: 20px;
     position: fixed;
     height: 100%;
-    left: -200px; /* Initially hidden */
-    transition: left 0.5s;
+    left: -200px; /* Start off-screen */
+    transition: left 0.5s; /* Smooth transition for sidebar */
 }
 
 aside ul {
@@ -55,7 +55,8 @@ aside ul li {
     flex: 1;
     padding: 20px;
     background-color: #fff;
-    margin-left: 20px;
+    transition: margin-left 0.5s; /* Ensure this also transitions smoothly */
+    width: calc(100% - 20px); /* Subtract left margin */
 }
 
 .hamburger {
